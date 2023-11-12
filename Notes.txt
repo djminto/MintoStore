@@ -1,0 +1,39 @@
+1. name of an attraction (Required = Y)
+ description (Required = Y)
+location  (Required = Y)
+id of an attraction (Required = Y)
+imageurl (Required = N)
+
+STEPS TO IMPLEMENT DATABASE CRUD IN API
+
+STEP1: Create model(s)
+STEP 2: Create DbContext class
+STEP 2.1: a DbContext class must inherit from DbcContext which is found in Microsoft.EntityFrameworkCore
+STEP 2.2: Install the following packages if they are not installed
+			- Microsoft.EntityFrameworkCore
+			- Microsoft.EntityFrameworkCore.SqlServer
+			- Microsoft.EntityFrameworkCore.Tools
+		NOTICE!!: the versions installed must aggree with your version of .net framework which can be found by 
+		right clicking on frameworks under dependencies and then right click on microsft.aspnetcore.app
+		and choosing properties which will display the version of the freame work you are using.
+
+		NOTICE!!: Ensure that you check if your namespace or project name does not have the same name as your model.
+					If it does you would either have to change the name of your model or use the namespace, the floder name and
+					the name of your model . Example: Attraction.Models.Attraction
+					where Attraction in the namespace, and the model is also Attraction and it is
+					located in the model folder.
+
+STEP 3: Set up the connection string
+
+		 NameOfConnectionString : "Server=NameofServer; Initial Catalog=NameofDataBase; Trusted_Connection=True; TrustServerCertificate=True;"
+
+STEP 4: Add DbContextOptions to the middleware pipeline in Program.cs
+
+STEP 5: Initiate the Migration and create the table in the database.
+
+STEP 5.1: The command to run in nuget manager console are 
+
+		- Add-Migration "NameofMigration/Comment"
+		- Update-database
+
+STEP 6: Start creating action methods inside api
